@@ -2,4 +2,7 @@
     <string name="app_name">HomeAccounting</string>
     <string name="app_name_ru">Учёт дома</string>
     <string name="log_in_app">Начать</string>
+    
+    <string name="back_button_home_screen">Назад</string>
+    <string name="name_main_screen">Главный экран</string>
 </resources>

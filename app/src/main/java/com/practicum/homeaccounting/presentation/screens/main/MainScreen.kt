@@ -1,9 +1,8 @@
-package com.practicum.homeaccounting.presentation.screens.welcome
+package com.practicum.homeaccounting.presentation.screens.main
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -12,37 +11,28 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.practicum.homeaccounting.R
 import com.practicum.homeaccounting.ui.theme.HomeAccountingTheme
 
 @Composable
-fun WelcomeScreen(
-    onNavigateToMain: () -> Unit,
+fun MainScreen(
+    onNavigateBack: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+        modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(
-            text = stringResource(R.string.app_name),
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.padding(bottom = 8.dp)
-        )
-        Text(
-            text = stringResource(R.string.app_name_ru),
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.padding(bottom = 16.dp)
+            text = stringResource(R.string.name_main_screen),
+            style = MaterialTheme.typography.headlineMedium
         )
         Button(
-            onClick = onNavigateToMain
+            onClick = onNavigateBack
         ) {
             Text(
-                text = stringResource(R.string.log_in_app)
+                text = stringResource(R.string.back_button_home_screen)
             )
         }
     }
@@ -50,10 +40,8 @@ fun WelcomeScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun WelcomeScreenPreview() {
+fun MainScreenPreview() {
     HomeAccountingTheme {
-        WelcomeScreen(
-            onNavigateToMain = {}
-        )
+        MainScreen(onNavigateBack = {})
     }
 }
