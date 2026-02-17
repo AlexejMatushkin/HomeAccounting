@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HomeAccounting</string>
+    <string name="app_name_ru">Учёт дома</string>
+    <string name="log_in_app">Начать</string>
 </resources>
