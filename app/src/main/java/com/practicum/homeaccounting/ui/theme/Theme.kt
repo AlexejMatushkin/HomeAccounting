@@ -9,7 +9,12 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -45,13 +50,43 @@ fun HomeAccountingTheme(
             val context = LocalContext.current
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
+        darkTheme -> darkColorScheme()
+        else -> lightColorScheme()
+    }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+    // Кастомизируем цветовую схему
+    val customColorScheme = colorScheme.copy(
+        primary = PrimaryGreen,
+        onPrimary = Color.White,
+        primaryContainer = PrimaryLightGreen,
+        onPrimaryContainer = Color.White,
+
+        secondary = SecondaryOrange,
+        onSecondary = Color.White,
+        secondaryContainer = SecondaryLightOrange,
+        onSecondaryContainer = Color.Black,
+
+        error = ErrorRed,
+        onError = Color.White,
+
+        background = BackgroundGray,
+        onBackground = TextPrimary,
+
+        surface = SurfaceWhite,
+        onSurface = TextPrimary
+    )
+
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = customColorScheme.primary.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
+        }
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
+        colorScheme = customColorScheme,
         typography = Typography,
         content = content
     )

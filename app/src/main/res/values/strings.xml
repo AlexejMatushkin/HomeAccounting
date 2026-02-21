@@ -3,6 +3,16 @@
     <string name="app_name_ru">Учёт дома</string>
     <string name="log_in_app">Начать</string>
     
-    <string name="back_button_home_screen">Назад</string>
-    <string name="name_main_screen">Главный экран</string>
+    <string name="main_screen_back_button">Назад</string>
+    <string name="main_screen_title">Главный экран</string>
+
+    <string name="add_product_title">Добавить продукт</string>
+    <string name="product_name">Название продукта</string>
+    <string name="category">Категория</string>
+    <string name="expiry_date">Срок годности</string>
+    <string name="quantity">Количество</string>
+    <string name="notes_optional">Заметки (необязательно)</string>
+    <string name="save">Сохранить</string>
+    <string name="error_name_required">Название обязательно</string>
+    <string name="error_quantity_positive">Количество должно быть больше 0</string>
 </resources>
